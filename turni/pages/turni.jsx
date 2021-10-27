@@ -1,11 +1,11 @@
-import {format} from "date-fns";
+import {getTodayWithNoTime, getNextDay} from "./handlingDate";
 const turni = () => {
-    const getTodayWithNoTime = () => {
-        return format(new Date(), "yyyy-MM-dd");
-    };
     // get today and go away of 7 days
-    console.log(getTodayWithNoTime());
-    return <div>turni!!!</div>;
+    const today = getTodayWithNoTime();
+    // get 7 days from today
+    // creare una funziona che mi dia le prossime 7 date a partire da oggi
+    console.log(getNextDay("test"));
+    return <div>a </div>;
 };
 
 export default turni;
