@@ -1,12 +1,10 @@
 import {getTodayWithNoTime, getNextDay, getCurrentWeek} from "./handlingDate";
 const turni = () => {
-    // get today and go away of 7 days
     const today = getTodayWithNoTime();
-    //console.log(getNextDay(today));
 
     console.log(getCurrentWeek(today));
-    // get 7 days from today
-    // creare una funziona che mi dia le prossime 7 date a partire da oggi
+
+    //TODO gestire visulalizzazione prossimi 7 giorni e creare docker file e database postgres?
     return <div>{today}</div>;
 };
 
