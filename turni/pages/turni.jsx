@@ -19,11 +19,9 @@ const TurniWrapper = () => {
         return response
     }
      const myfetch = async() =>{
-         console.log("vado a prednere i cazzo id dati!!!")
         getData();
     }
-        */
-
+*/
     //console.log(getCurrentWeek(today));
 
     //TODO gestire visulalizzazione prossimi 7 giorni e creare docker file e database postgres?
