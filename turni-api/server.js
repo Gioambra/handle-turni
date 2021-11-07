@@ -1,25 +1,18 @@
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const { Sequelize } = require('sequelize');
 const port = 3001;
 const sequelize = new Sequelize('handling-turni', 'gambra', 'gambra21', {
     host: 'localhost',
     dialect:  'mysql',
   });
-
+  app.use(cors());
+  //TODO work on rest api!
 app.get('/getTurns',  async (req, res) => {
-    sequelize.authenticate();
-      try {
-            
-          console.log('Connection has been established successfully.');
-            const response = await sequelize.query('SELECT * from currentweek');
-            res.setHeader('Content-Type', 'application/json');
-            res.send(response);
-            return response;
-        } catch (error) {
-          console.error('Unable to connect to the database:', error);
-        }
+  console.log("fetch");
+    res.json('hey');
 });
 
 //TODO creare rest api per handle turni
