@@ -9,10 +9,13 @@ const sequelize = new Sequelize('handling-turni', 'gambra', 'gambra21', {
     dialect:  'mysql',
   });
   app.use(cors());
+  
   //TODO work on rest api!
 app.get('/getTurns',  async (req, res) => {
+  const result = await sequelize.query('SELECT * FROM currentweek');
+  console.log(result)
   console.log("fetch");
-    res.json('hey');
+    res.json(result);
 });
 
 //TODO creare rest api per handle turni
