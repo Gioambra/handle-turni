@@ -9,24 +9,35 @@ const getTodayWithNoTime = () => {
 // input ->> data di oggi
 // output->> data di domani
 const getNextDay = (from) => {
-    const dateFrom = from.split('-');
-    console.log(format(addDays(new Date(dateFrom[2], (dateFrom[1] - 1), dateFrom[0]), 1),'dd-MM-yyyy'));
+    const dateFrom = from.split("-");
+    console.log(
+        format(
+            addDays(new Date(dateFrom[2], dateFrom[1] - 1, dateFrom[0]), 1),
+            "dd-MM-yyyy"
+        )
+    );
     // aano -mese -giorno
-    return format(addDays(new Date(dateFrom[2], (dateFrom[1] - 1), dateFrom[0]), 1),'dd-MM-yyyy');
+    return format(
+        addDays(new Date(dateFrom[2], dateFrom[1] - 1, dateFrom[0]), 1),
+        "dd-MM-yyyy"
+    );
 };
 
-// input ->>data di oggi 
+// input ->>data di oggi
 // output->> tutta la settimana corrente
-const getCurrentWeek = (from) =>
-{
-   let tomorrow = getNextDay(from);
+const getCurrentWeek = (from) => {
+    let tomorrow = getNextDay(from);
     let currentWeek = [];
-    for(var index = 0; index<7; index++)
-    {
+    for (var index = 0; index < 7; index++) {
         currentWeek.push(tomorrow);
-        tomorrow = getNextDay(tomorrow)
+        tomorrow = getNextDay(tomorrow);
     }
     console.log(currentWeek);
-    return currentWeek
-}
-export {getTodayWithNoTime, getNextDay, getCurrentWeek};
+    return currentWeek;
+};
+
+const thisWeek = () => {
+    const today = getTodayWithNoTime();
+    return getCurrentWeek(today);
+};
+export {getTodayWithNoTime, getNextDay, getCurrentWeek, thisWeek};
