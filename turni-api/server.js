@@ -9,6 +9,11 @@ const sequelize = new Sequelize("handle_turni", "root", "gambra", {
 });
 app.use(cors());
 
+//TODO cron every week start, and insert a new week of days
+app.get("/insertWeek", async (req, res) => {
+    const result = await sequelize.query("INSERT INTO currentweek");
+});
+
 //TODO work on rest api!
 app.get("/getTurns", async (req, res) => {
     const result = await sequelize.query("SELECT * FROM currentweek");
