@@ -1,6 +1,11 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+var jsonParser = bodyParser.json()
+
 const {Sequelize} = require("sequelize");
 const port = 3001;
 const sequelize = new Sequelize("handleturni", "gambra", "gambra", {
@@ -8,14 +13,18 @@ const sequelize = new Sequelize("handleturni", "gambra", "gambra", {
     dialect: "mysql",
 });
 app.use(cors());
-
 //TODO cron every week start, and insert a new week of days
-app.get("/insertWeek", async (req, res) => {
-    const result = await sequelize.query("INSERT INTO currentweek");
+app.post("/insertDay",jsonParser, async (req, res) => {
+    const id = req.body.id;
+    const user = req.body.user;
+    console.log(req.body.user);
+    console.log(`INSERT INTO day VALUES('${id}','${user}',0)`);
+
+    const result = await sequelize.query(`INSERT INTO day VALUES('${id}','${user}',0)`);
 });
 
 //TODO work on rest api!
-app.get("/getTurns", async (req, res) => {
+app.get("/getTurns",urlencodedParser, async (req, res) => {
     const result = await sequelize.query("SELECT * FROM day");
     console.log(result);
     console.log("fetch");
