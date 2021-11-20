@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const {Sequelize} = require("sequelize");
 const port = 3001;
-const sequelize = new Sequelize("handle_turni", "root", "gambra", {
+const sequelize = new Sequelize("handleturni", "gambra", "gambra", {
     host: "localhost",
     dialect: "mysql",
 });
@@ -16,7 +16,7 @@ app.get("/insertWeek", async (req, res) => {
 
 //TODO work on rest api!
 app.get("/getTurns", async (req, res) => {
-    const result = await sequelize.query("SELECT * FROM currentweek");
+    const result = await sequelize.query("SELECT * FROM day");
     console.log(result);
     console.log("fetch");
     res.json(result);
