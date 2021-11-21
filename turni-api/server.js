@@ -18,7 +18,7 @@ app.post("/insertDay",jsonParser, async (req, res) => {
     const id = req.body.id;
     const user = req.body.user;
     console.log(req.body.user);
-    console.log(`INSERT INTO day VALUES('${id}','${user}',0)`);
+    console.log(`INSERT INTO day VALUES('${id}','${user}','turno ore 15')`);
 
     const result = await sequelize.query(`INSERT INTO day VALUES('${id}','${user}',0)`);
 });

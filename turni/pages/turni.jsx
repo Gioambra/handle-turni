@@ -17,7 +17,6 @@ const TurniWrapper = () => {
 
     const insertDay = async () => {
         const days =  thisWeek();
-        console.log(days[1]);
 
         for(let index=0;index<days;index++)
         {
@@ -29,7 +28,7 @@ const TurniWrapper = () => {
         'Content-Type': 'application/json'
         },
         
-        body: `{"id": "${days[index]}","user": "user to add","turni": "1" }`
+        body: `{"id": "${days[index]}","user": "user to add","turni": "turno ore 15.00" }`
     ,}
 );
     }
